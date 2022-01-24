@@ -9,10 +9,10 @@ Using Object Orient Programming to build a simple app.
 
 To get a local copy up and running follow these simple example steps.
 
-- copy this link `https://github.com/ShahierNashaat/decode-morse-message.git`.
+- copy this link `https://github.com/Somdotta07/OOP-School-Library.git`.
 - get the directory that you want to clone the repository.
 - open the command prompt in this directory.
-- write `git clone https://github.com/ShahierNashaat/decode-morse-message.git`.
+- write `git clone https://github.com/Somdotta07/OOP-School-Library.git`.
 - go to the repository folder in your command prompt.
 - run `bundle install`.
 
