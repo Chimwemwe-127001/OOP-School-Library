@@ -22,6 +22,10 @@ class Person
     Rental.new(book, date, self)
   end
 
+  def validate_name
+    @name = @corrector.correct_name(name)
+  end
+
   private
 
   def of_age?
@@ -32,3 +36,8 @@ class Person
     of_age? || parent_permission == true
   end
 end
+
+person = Person.new(100, 'somdottasarkar')
+person.validate_name
+
+puts person.name
