@@ -1,9 +1,9 @@
-require_relative 'book'
-require_relative 'classroom'
-require_relative 'person'
-require_relative 'rental'
-require_relative 'student'
-require_relative 'teacher'
+require_relative './book'
+require_relative './classroom'
+require_relative './person'
+require_relative './rental'
+require_relative './student'
+require_relative './teacher'
 
 class App
   def initialize
@@ -55,15 +55,15 @@ class App
   end
 
   def list_all_books
-    @books.each { |book| puts book }
+    @books.each { |book| puts "Title: #{book.title}, Author: #{book.author}" }
   end
 
   def list_all_people
-    @people.each { |person| puts person }
+    @people.each { |person| puts "[#{person.class}] Name: #{person.name}, Id: #{person.id}, Age: #{person.age}, " }
   end
 
   def create_person
-    print 'Do you want to create a student (1) or teacher (2) :'
+    print 'Do you want to create a student (1) or teacher (2) [Input a number]:'
     num = gets.chomp
     case num
     when '1'
@@ -86,9 +86,10 @@ class App
     parent_permission = gets.chomp.downcase
 
     student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
-    @people.push(student)
+    @people << student
 
     puts 'Student created successfully'
+    menu
   end
 
   def create_teacher
@@ -102,7 +103,10 @@ class App
     specialization = gets.chomp
 
     teacher = Teacher.new(age, name, specialization)
-    @people.push(teacher)
+    @people << teacher
+
+    puts 'Teacher created successfully'
+    menu
   end
 
   def create_book
@@ -113,7 +117,7 @@ class App
     author = gets.chomp
 
     book = Book.new(title, author)
-    @books.push(book)
+    @books << book
 
     puts 'Books created successfully'
   end
@@ -130,7 +134,7 @@ class App
     print 'Date: '
     date = gets.chomp
     rental = Rental.new(date, @books[book_id], @people[person_id])
-    @rentals.push(rental)
+    @rentals << rental
     puts ' Rental created successfully'
   end
 
@@ -139,7 +143,8 @@ class App
     id = gets.chomp.to_i
 
     puts 'Rentals'
-    @rentals.each { |rental| puts rental if rental.person.id == id }
+    @rentals.each do |rental|
+    puts "Date: #{rental.date}, Book: #{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
   end
 end
 
