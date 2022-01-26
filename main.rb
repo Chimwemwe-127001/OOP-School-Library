@@ -1,9 +1,9 @@
-require './book'
-require './classroom'
-require './person'
-require './rental'
-require './student'
-require './teacher'
+require_relative 'book'
+require_relative 'classroom'
+require_relative 'person'
+require_relative 'rental'
+require_relative 'student'
+require_relative 'teacher'
 
 class App
   def initialize
@@ -25,7 +25,7 @@ class App
   end
 
   def menu
-    puts 'Please choose an option by enterin a number:'
+    puts 'Please choose an option by entering a number:'
     puts '1 - List of all books'
     puts '2 - List of all people'
     puts '3 - Create a person'
@@ -85,7 +85,7 @@ class App
     print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp.downcase
 
-    student = Student.new(age, name, parent_permission, classroom: @classroom)
+    student = Student.new(age: age, name: name, parent_permission: parent_permission, classroom: @classroom)
     @people.push(student)
 
     puts 'Student created successfully'
@@ -98,7 +98,7 @@ class App
     print 'Name: '
     name = gets.chomp
 
-    print 'Specialization'
+    print 'Specialization:'
     specialization = gets.chomp
 
     teacher = Teacher.new(age, name, specialization)
@@ -129,7 +129,7 @@ class App
 
     print 'Date: '
     date = gets.chomp
-    rental = Rental.new(date, @books[book_id], @people[person_id])
+    rental = Rentals.new(date, @books[book_id], @people[person_id])
     @rentals.push(rental)
     puts ' Rental created successfully'
   end
