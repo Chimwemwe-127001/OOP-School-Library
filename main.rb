@@ -129,7 +129,7 @@ class App
 
     print 'Date: '
     date = gets.chomp
-    rental = Rentals.new(date, @books[book_id], @people[person_id])
+    rental = Rental.new(date, @books[book_id], @people[person_id])
     @rentals.push(rental)
     puts ' Rental created successfully'
   end
