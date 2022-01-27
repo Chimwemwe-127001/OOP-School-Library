@@ -1,3 +1,4 @@
+require 'pry'
 require_relative 'person'
 require_relative 'student'
 require_relative 'teacher'
@@ -17,8 +18,9 @@ class App
     puts 'Welcome to School Library!'
     loop do
       menu
+      binding.pry
       option = gets.chomp
-      break if option == '7'
+      break if option == 7
 
       get_num option
     end
