@@ -1,9 +1,4 @@
-require_relative 'person'
-require_relative 'student'
-require_relative 'teacher'
-require_relative 'rental'
-require_relative 'book'
-require_relative 'classroom'
+require_relative 'app'
 
 class Main
   def initialize
@@ -17,7 +12,7 @@ class Main
       option = gets.chomp
       break if option == '7'
 
-      get_num option
+      @app.get_num option
     end
     puts 'Thank you for using our Library!'
   end
@@ -35,5 +30,5 @@ class Main
   end
 end
 
-  execute_app = Main.new
-  execute_app.run
+execute_app = Main.new
+execute_app.run
