@@ -1,11 +1,10 @@
-# rubocop: disable Style/OptionalBooleanParameter
 require_relative 'corrector'
 require_relative 'rental'
 class Person
   attr_accessor :name, :age, :rentals
   attr_reader :id
 
-  def initialize(age, name = 'Unknown', parent_permission = true)
+  def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(1..1000)
     @age = age
     @name = name
@@ -32,8 +31,6 @@ class Person
 
   private :of_age?
 end
-
-# rubocop: enable Style/OptionalBooleanParameter
 
 person = Person.new(100, 'somdottasarkar')
 person.validate_name
