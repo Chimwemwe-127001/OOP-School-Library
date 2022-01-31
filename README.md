@@ -31,7 +31,8 @@ Using Object Orient Programming to build a simple app.
 - GitHub: [@githubhandle](https://github.com/luftedar)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/orcunugur)
 
-## Mohamed Badr
+
+👤 **Mohamed Badr**
 
 - GitHub: [@mbdesigns1989](https://github.com/mbdesigns1989)
 - LinkedIn: [mohamed badr](https://www.linkedin.com/in/mohamed-badr-mb/)
