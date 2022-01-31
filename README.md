@@ -23,6 +23,12 @@ To get a local copy up and running follow these simple example steps.
 - [Github](https://github.com/Somdotta07)
 - [Twitter](https://github.com/Somdotta07)
 - [LinkedIn](www.linkedin.com/in/somdottasarkar)
+
+👤 **Orçun Uğur**
+
+- GitHub: [@githubhandle](https://github.com/luftedar)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/orcunugur)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
