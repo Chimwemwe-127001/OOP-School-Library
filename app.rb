@@ -99,8 +99,7 @@ class App
     print 'Author: '
     author = gets.chomp
 
-    book = Book.new(title, author)
-    @books << book
+    @books << Book.new(title, author)
 
     puts 'Book added successfully'
     sleep 0.75
