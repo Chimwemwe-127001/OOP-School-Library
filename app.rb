@@ -58,7 +58,7 @@ class App
     puts 'Person created successfully!'
   end
 
-  def create_student
+  def create_student(age, name)
     print 'Has parent permission? [Y/N]: '
 
     parent_permission = gets.chomp.upcase == 'Y'
@@ -68,7 +68,7 @@ class App
     sleep 0.75
   end
 
-  def create_teacher
+  def create_teacher(age, name)
     print 'Specialization: '
     specialization = gets.chomp
 
