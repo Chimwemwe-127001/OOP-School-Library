@@ -1,4 +1,5 @@
 require_relative 'app'
+require_relative 'data_store'
 
 class Main
   def initialize
@@ -13,7 +14,9 @@ class Main
       break if option == '7'
 
       @app.get_num option
+      @app.save_books
     end
+
     puts 'Thank you for using our Library!'
   end
 

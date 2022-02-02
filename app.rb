@@ -9,7 +9,7 @@ require_relative 'data_store'
 class App
   include StoreData
   def initialize
-    @books = []
+    @books = load_books
     @rentals = []
     @people = load_person
   end
