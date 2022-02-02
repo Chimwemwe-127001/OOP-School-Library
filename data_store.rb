@@ -28,7 +28,7 @@ module StoreData
     file = 'books.json'
     if File.exist?(file)
       JSON.parse(File.read(file)).map do |book|
-        data.push(Book.new(title: book['title'], author: book['author']))
+        data.push(Book.new(book['title'], book['author']))
       end
     end
     data
