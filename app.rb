@@ -4,13 +4,14 @@ require_relative 'rental'
 require_relative 'book'
 require_relative 'teacher'
 require_relative 'classroom'
-require 'json'
+require_relative 'data_store'
 
 class App
+  include StoreData
   def initialize
     @books = []
     @rentals = []
-    @people = []
+    @people = load_person
   end
 
   def get_num(option)
@@ -139,11 +140,5 @@ class App
       puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id
     end
     sleep 0.75
-  end
-
-  def save_files
-    File.open('book.json', w) { |file| file.write(@books.to_json) }
-    File.open('rental.json', w) { |file| file.write(@rentals.to_json) }
-    File.open('person.json', w) { |file| file.write(@people.to_json) }
   end
 end
