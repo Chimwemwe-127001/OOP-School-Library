@@ -47,7 +47,7 @@ class App
   end
 
   def create_person
-     print 'Do you want to create a student (1) or teacher (2) [Input a number]: '
+    print 'Do you want to create a student (1) or teacher (2) [Input a number]: '
     option = gets.chomp
 
     case option
@@ -115,7 +115,7 @@ class App
     puts
     puts 'Select a person from the following list by number (not ID)'
     @people.each_with_index do |person, index|
-    puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      puts "#{index}) [#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
     end
     person_i = gets.chomp.to_i
     puts
@@ -132,7 +132,7 @@ class App
 
     puts 'Rentals:'
     @rentals.each do |rental|
-    puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id.to_i
+      puts "Date: #{rental.date}, Book '#{rental.book.title}' by #{rental.book.author}" if rental.person.id == id.to_i
     end
     sleep 0.75
   end
