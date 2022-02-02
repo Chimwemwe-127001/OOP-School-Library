@@ -11,10 +11,14 @@ class Main
     loop do
       menu
       option = gets.chomp
+
       break if option == '7'
+
       @app.get_num option
     end
     @app.save_books
+    @app.save_person
+    @app.save_rentals
     puts 'Thank you for using our Library!'
   end
 

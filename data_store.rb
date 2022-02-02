@@ -33,12 +33,32 @@ module StoreData
     end
     data
   end
+  def save_person
+     data = []
+     @people.each do |person|
+       if person.instance_of?(Teacher)
+         data.push({ id: person['id'], age: person['age'],
+                                specialization: person['specialization'], name: person['name'], key: person.class })
+        else 
+         data.push({ id: person['id'], age: person['age'], name: person['name'],
+                                parent_permission: person['parent_permission'], key: person.class })
+       end
+       File.write('person.json', JSON.generate(data))
+  end
 
   def save_books
     data = []
     @books.each do |book|
       data.push({ title: book['title'], author: book['author'] })
     end
-    File.write('book.json', JSON.generate(data))
+    File.write('books.json', JSON.generate(data))
+  end
+
+    def save_rentals
+    data = []
+    @rentals.each do |rental|
+      data.push({ date: rental['date'], book_title: rental.book.title, person_id: rental.person.id })
+    end
+    File.write('rentals.json', JSON.generate(data))
   end
 end
