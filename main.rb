@@ -12,11 +12,9 @@ class Main
       menu
       option = gets.chomp
       break if option == '7'
-
       @app.get_num option
-      @app.save_books
     end
-
+    @app.save_books
     puts 'Thank you for using our Library!'
   end
 
