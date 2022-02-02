@@ -25,7 +25,7 @@ module StoreData
 
   def load_books
     data = []
-    file = 'book.json'
+    file = 'books.json'
     if File.exist?(file)
       JSON.parse(File.read(file)).map do |book|
         data.push(Book.new(title: book['title'], author: book['author']))
@@ -33,17 +33,41 @@ module StoreData
     end
     data
   end
+
+  def load_rentals
+    data = []
+    file = 'rentals.json'
+    if File.exist?(file)
+      JSON.parse(File.read(file)).map do |rental|
+        date = rental.date
+        person = get_person_by_id(rental.person_id)
+        book = get_book_by_title(rental.book_title)
+        data.push(Rental.new(date, person, book))
+      end
+    end
+    data
+  end
+
+  def get_person_by_id(id)
+    @people.each { |data| return element if data.id == id.to_i }
+  end
+
+  def get_book_by_title(title)
+    @books.each { |book| return element if book.title == title }
+  end
+
   def save_person
-     data = []
-     @people.each do |person|
-       if person.instance_of?(Teacher)
-         data.push({ id: person['id'], age: person['age'],
-                                specialization: person['specialization'], name: person['name'], key: person.class })
-        else 
-         data.push({ id: person['id'], age: person['age'], name: person['name'],
-                                parent_permission: person['parent_permission'], key: person.class })
-       end
-       File.write('person.json', JSON.generate(data))
+    data = []
+    @people.each do |person|
+      if person.instance_of?(Teacher)
+        data.push({ id: person['id'], age: person['age'],
+                    specialization: person['specialization'], name: person['name'], key: person.class })
+      else
+        data.push({ id: person['id'], age: person['age'], name: person['name'],
+                    parent_permission: person['parent_permission'], key: person.class })
+      end
+    end
+    File.write('person.json', JSON.generate(data))
   end
 
   def save_books
@@ -54,7 +78,7 @@ module StoreData
     File.write('books.json', JSON.generate(data))
   end
 
-    def save_rentals
+  def save_rentals
     data = []
     @rentals.each do |rental|
       data.push({ date: rental['date'], book_title: rental.book.title, person_id: rental.person.id })

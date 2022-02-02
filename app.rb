@@ -10,7 +10,7 @@ class App
   include StoreData
   def initialize
     @books = load_books
-    @rentals = []
+    @rentals = load_rentals
     @people = load_person
   end
 
