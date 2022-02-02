@@ -1,1 +1,1 @@
- [{"id":,"age":,"name":"Somdotta","parent_permission":true,"data_type":"Student"},{"id":,"age":,"name":"Orcun","parent_permission":true,"data_type":"Student"}]
+[{"key":"student","id":406,"age":"15","name":"Somdotta","permission":true,"classroom":null},{"key":"student","id":932,"age":"30","name":"Orchun","permission":null,"classroom":null},{"key":"student","id":863,"age":66,"name":"Roy","permission":null,"classroom":null}]

@@ -1,5 +1,5 @@
 require_relative 'app'
-require_relative 'data_store'
+require 'json'
 
 class Main
   def initialize
@@ -8,23 +8,25 @@ class Main
 
   def run
     puts 'Welcome to School Library!'
+
     loop do
       menu
+
       option = gets.chomp
 
       break if option == '7'
 
       @app.get_num option
     end
+    @app.save_people
     @app.save_books
-    @app.save_person
-    @app.save_rentals
-    puts 'Thank you for using our Library!'
+    @app.save_rental
+    puts 'Thank you for using this app!'
   end
 
   def menu
     puts
-    puts 'Please choose an option by entering a number'
+    puts 'Please choose an option by entering a number:'
     puts '1 - List all books'
     puts '2 - List all people'
     puts '3 - Create a person'
@@ -34,6 +36,5 @@ class Main
     puts '7 - Exit'
   end
 end
-
 execute_app = Main.new
 execute_app.run
