@@ -1,6 +1,5 @@
 require_relative '../book'
 
-
 describe Book do
   context 'It should create book and add rentals' do
     book = Book.new('East of Eden', 'John Steinbeck')
@@ -13,6 +12,5 @@ describe Book do
       book.add_rental(book)
       expect(book.rentals.length).to eq 1
     end
-
   end
 end

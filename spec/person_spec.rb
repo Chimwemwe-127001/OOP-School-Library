@@ -4,11 +4,11 @@ describe Person do
   context 'When passing a name' do
     person = Person.new(id: nil, age: 25, name: 'somdotta', parent_permission: true)
     person_two = Person.new(id: nil, age: 12, name: 'orcun', parent_permission: false)
-     
+
     it 'should validate the age of the person created' do
-        expect(person.age).to eq 25
-        expect(person_two.age).to eq 12
-      end
+      expect(person.age).to eq 25
+      expect(person_two.age).to eq 12
+    end
 
     it 'should return true if he can use service' do
       expect(person.can_use_services?).to eq true
@@ -24,4 +24,3 @@ describe Person do
     end
   end
 end
-
